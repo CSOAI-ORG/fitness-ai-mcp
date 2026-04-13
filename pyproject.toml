@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fitness-ai-mcp"
+version = "1.0.0"
+description = "Health and fitness tools - workout generation, calorie tracking, body composition, training plans, exercise form"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "MEOK AI Labs", email = "hello@meok.ai" },
+]
+keywords = ["mcp", "ai", "tools", "fitness"]
+dependencies = [
+    "mcp>=1.0.0",
+]
+
+[project.scripts]
+fitness-ai-mcp = "server:mcp.run"
