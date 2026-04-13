@@ -1,0 +1,10 @@
+name: fitness-ai-mcp
+description: "MEOK AI Labs — Health and fitness tools powered by MEOK AI Labs."
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/fitness-ai-mcp
+license: MIT
+categories: [Health, Fitness]
+tags: [fitness, workout, exercise, health-tracking, gym, personal-training]
+runtime: python
+entrypoint: server.py
