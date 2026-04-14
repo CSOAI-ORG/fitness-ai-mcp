@@ -3,6 +3,11 @@ Fitness AI MCP Server
 Health and fitness tools powered by MEOK AI Labs.
 """
 
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import time
 import math
 import random
@@ -84,7 +89,7 @@ def generate_workout(
     duration_minutes: int = 45,
     equipment_available: list[str] | None = None,
     muscle_groups: list[str] | None = None,
-    exclude_exercises: list[str] | None = None) -> dict:
+    exclude_exercises: list[str] | None = None, api_key: str = "") -> dict:
     """Generate a complete workout plan tailored to goals and equipment.
 
     Args:
@@ -95,6 +100,10 @@ def generate_workout(
         muscle_groups: Target muscle groups: chest, back, legs, shoulders, arms, core, cardio
         exclude_exercises: Exercise names to exclude
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("generate_workout")
 
     equipment_available = equipment_available or ["barbell", "dumbbells", "cable", "machine", "bodyweight"]
@@ -187,7 +196,7 @@ def generate_workout(
 def track_calories(
     foods: list[dict],
     target_calories: int = 2000,
-    target_protein_g: int = 0) -> dict:
+    target_protein_g: int = 0, api_key: str = "") -> dict:
     """Track daily calorie and macronutrient intake from food entries.
 
     Args:
@@ -195,6 +204,10 @@ def track_calories(
         target_calories: Daily calorie target
         target_protein_g: Daily protein target in grams (0 = auto-calculate)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("track_calories")
 
     total_cal = 0
@@ -267,7 +280,7 @@ def calculate_body_composition(
     waist_cm: float = 0,
     neck_cm: float = 0,
     hip_cm: float = 0,
-    activity_level: str = "moderate") -> dict:
+    activity_level: str = "moderate", api_key: str = "") -> dict:
     """Calculate BMI, body fat estimate, BMR, and TDEE.
 
     Args:
@@ -280,6 +293,10 @@ def calculate_body_composition(
         hip_cm: Hip circumference in cm (females, for body fat estimate)
         activity_level: Activity: sedentary, light, moderate, active, very_active
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("calculate_body_composition")
 
     height_m = height_cm / 100
@@ -350,7 +367,7 @@ def build_training_plan(
     experience_level: str = "intermediate",
     days_per_week: int = 4,
     plan_weeks: int = 8,
-    equipment_available: list[str] | None = None) -> dict:
+    equipment_available: list[str] | None = None, api_key: str = "") -> dict:
     """Build a multi-week training program with periodization.
 
     Args:
@@ -360,6 +377,10 @@ def build_training_plan(
         plan_weeks: Program duration in weeks (4-16)
         equipment_available: Available equipment types
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("build_training_plan")
 
     days_per_week = max(2, min(6, days_per_week))
@@ -453,13 +474,17 @@ def build_training_plan(
 @mcp.tool()
 def check_exercise_form(
     exercise_name: str,
-    common_mistakes: bool = True) -> dict:
+    common_mistakes: bool = True, api_key: str = "") -> dict:
     """Get exercise form cues, common mistakes, and muscle activation info.
 
     Args:
         exercise_name: Name of the exercise
         common_mistakes: Include common form mistakes and corrections
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("check_exercise_form")
 
     exercises_db = {

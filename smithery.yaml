@@ -1,10 +1,92 @@
 name: fitness-ai-mcp
-description: "MEOK AI Labs — Health and fitness tools powered by MEOK AI Labs."
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/fitness-ai-mcp
-license: MIT
-categories: [Health, Fitness]
-tags: [fitness, workout, exercise, health-tracking, gym, personal-training]
-runtime: python
-entrypoint: server.py
+description: '> Health and fitness tools - workout generation, calorie tracking, body
+  composition, training plans, exercise form'
+version: 1.0.0
+tools:
+- name: generate_workout
+  description: Generate a complete workout plan tailored to goals and equipment.
+  parameters:
+  - name: goal
+    type: string
+    required: false
+  - name: experience_level
+    type: string
+    required: false
+  - name: duration_minutes
+    type: integer
+    required: false
+  - name: equipment_available
+    type: string
+    required: false
+  - name: muscle_groups
+    type: string
+    required: false
+  - name: exclude_exercises
+    type: string
+    required: false
+- name: track_calories
+  description: Track daily calorie and macronutrient intake from food entries.
+  parameters:
+  - name: foods
+    type: array
+    required: true
+  - name: target_calories
+    type: integer
+    required: false
+  - name: target_protein_g
+    type: integer
+    required: false
+- name: calculate_body_composition
+  description: Calculate BMI, body fat estimate, BMR, and TDEE.
+  parameters:
+  - name: weight_kg
+    type: number
+    required: true
+  - name: height_cm
+    type: number
+    required: true
+  - name: age
+    type: integer
+    required: true
+  - name: sex
+    type: string
+    required: false
+  - name: waist_cm
+    type: number
+    required: false
+  - name: neck_cm
+    type: number
+    required: false
+  - name: hip_cm
+    type: number
+    required: false
+  - name: activity_level
+    type: string
+    required: false
+- name: build_training_plan
+  description: Build a multi-week training program with periodization.
+  parameters:
+  - name: goal
+    type: string
+    required: false
+  - name: experience_level
+    type: string
+    required: false
+  - name: days_per_week
+    type: integer
+    required: false
+  - name: plan_weeks
+    type: integer
+    required: false
+  - name: equipment_available
+    type: string
+    required: false
+- name: check_exercise_form
+  description: Get exercise form cues, common mistakes, and muscle activation info.
+  parameters:
+  - name: exercise_name
+    type: string
+    required: true
+  - name: common_mistakes
+    type: boolean
+    required: false

@@ -1,24 +1,140 @@
 {
   "name": "fitness-ai-mcp",
-  "description": "MEOK AI Labs \u2014 Health and fitness tools powered by MEOK AI Labs.",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/fitness-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "> Health and fitness tools - workout generation, calorie tracking, body composition, training plans, exercise form",
+  "version": "1.0.0",
   "tools": [
-    "generate_workout",
-    "track_calories",
-    "calculate_body_composition",
-    "build_training_plan",
-    "check_exercise_form"
-  ],
-  "categories": [
-    "Health",
-    "Fitness"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "generate_workout",
+      "description": "Generate a complete workout plan tailored to goals and equipment.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "goal": {
+            "type": "string"
+          },
+          "experience_level": {
+            "type": "string"
+          },
+          "duration_minutes": {
+            "type": "integer"
+          },
+          "equipment_available": {
+            "type": "string"
+          },
+          "muscle_groups": {
+            "type": "string"
+          },
+          "exclude_exercises": {
+            "type": "string"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "track_calories",
+      "description": "Track daily calorie and macronutrient intake from food entries.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "foods": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "target_calories": {
+            "type": "integer"
+          },
+          "target_protein_g": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "foods"
+        ]
+      }
+    },
+    {
+      "name": "calculate_body_composition",
+      "description": "Calculate BMI, body fat estimate, BMR, and TDEE.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "weight_kg": {
+            "type": "number"
+          },
+          "height_cm": {
+            "type": "number"
+          },
+          "age": {
+            "type": "integer"
+          },
+          "sex": {
+            "type": "string"
+          },
+          "waist_cm": {
+            "type": "number"
+          },
+          "neck_cm": {
+            "type": "number"
+          },
+          "hip_cm": {
+            "type": "number"
+          },
+          "activity_level": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "weight_kg",
+          "height_cm",
+          "age"
+        ]
+      }
+    },
+    {
+      "name": "build_training_plan",
+      "description": "Build a multi-week training program with periodization.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "goal": {
+            "type": "string"
+          },
+          "experience_level": {
+            "type": "string"
+          },
+          "days_per_week": {
+            "type": "integer"
+          },
+          "plan_weeks": {
+            "type": "integer"
+          },
+          "equipment_available": {
+            "type": "string"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "check_exercise_form",
+      "description": "Get exercise form cues, common mistakes, and muscle activation info.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "exercise_name": {
+            "type": "string"
+          },
+          "common_mistakes": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "exercise_name"
+        ]
+      }
+    }
+  ]
 }
