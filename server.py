@@ -84,8 +84,7 @@ def generate_workout(
     duration_minutes: int = 45,
     equipment_available: list[str] | None = None,
     muscle_groups: list[str] | None = None,
-    exclude_exercises: list[str] | None = None,
-) -> dict:
+    exclude_exercises: list[str] | None = None) -> dict:
     """Generate a complete workout plan tailored to goals and equipment.
 
     Args:
@@ -188,8 +187,7 @@ def generate_workout(
 def track_calories(
     foods: list[dict],
     target_calories: int = 2000,
-    target_protein_g: int = 0,
-) -> dict:
+    target_protein_g: int = 0) -> dict:
     """Track daily calorie and macronutrient intake from food entries.
 
     Args:
@@ -269,8 +267,7 @@ def calculate_body_composition(
     waist_cm: float = 0,
     neck_cm: float = 0,
     hip_cm: float = 0,
-    activity_level: str = "moderate",
-) -> dict:
+    activity_level: str = "moderate") -> dict:
     """Calculate BMI, body fat estimate, BMR, and TDEE.
 
     Args:
@@ -353,8 +350,7 @@ def build_training_plan(
     experience_level: str = "intermediate",
     days_per_week: int = 4,
     plan_weeks: int = 8,
-    equipment_available: list[str] | None = None,
-) -> dict:
+    equipment_available: list[str] | None = None) -> dict:
     """Build a multi-week training program with periodization.
 
     Args:
@@ -457,8 +453,7 @@ def build_training_plan(
 @mcp.tool()
 def check_exercise_form(
     exercise_name: str,
-    common_mistakes: bool = True,
-) -> dict:
+    common_mistakes: bool = True) -> dict:
     """Get exercise form cues, common mistakes, and muscle activation info.
 
     Args:
