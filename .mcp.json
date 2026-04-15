@@ -1,6 +1,6 @@
 {
   "name": "fitness-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 MEOK AI Labs MCP Server",
+  "description": "Fitness Ai tools for AI agents. Capabilities: generate workout, track calories, calculate body composition. Built by MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
