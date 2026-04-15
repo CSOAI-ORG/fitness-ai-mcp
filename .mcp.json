@@ -1,6 +1,6 @@
 {
   "name": "fitness-ai-mcp",
-  "description": "> Health and fitness tools - workout generation, calorie tracking, body composition, training plans, exercise form",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
   "version": "1.0.0",
   "tools": [
     {
@@ -19,13 +19,13 @@
             "type": "integer"
           },
           "equipment_available": {
-            "type": "string"
+            "type": "array"
           },
           "muscle_groups": {
-            "type": "string"
+            "type": "array"
           },
           "exclude_exercises": {
-            "type": "string"
+            "type": "array"
           }
         },
         "required": []
@@ -38,10 +38,7 @@
         "type": "object",
         "properties": {
           "foods": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "type": "array"
           },
           "target_calories": {
             "type": "integer"
@@ -112,7 +109,7 @@
             "type": "integer"
           },
           "equipment_available": {
-            "type": "string"
+            "type": "array"
           }
         },
         "required": []
