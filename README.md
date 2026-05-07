@@ -1,3 +1,5 @@
+[![fitness-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/fitness-ai-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/fitness-ai-mcp)
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/fitness-ai-mcp)](https://github.com/CSOAI-ORG/fitness-ai-mcp/stargazers)
