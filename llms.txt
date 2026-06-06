@@ -1,0 +1,32 @@
+# Fitness Ai MCP
+
+> MEOK AI Labs MCP Server
+
+`fitness-ai-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+
+## Install
+
+```bash
+pip install fitness-ai-mcp
+```
+
+Or run without installing:
+
+```bash
+uvx fitness-ai-mcp
+```
+
+## Tools
+
+- `generate_workout` — Generate a complete workout plan tailored to goals and equipment.
+- `track_calories` — Track daily calorie and macronutrient intake from food entries.
+- `calculate_body_composition` — Calculate BMI, body fat estimate, BMR, and TDEE.
+- `build_training_plan` — Build a multi-week training program with periodization.
+- `check_exercise_form` — Get exercise form cues, common mistakes, and muscle activation info.
+
+## Links
+
+- Source: https://github.com/CSOAI-ORG/fitness-ai-mcp
+- PyPI: https://pypi.org/project/fitness-ai-mcp/
+- MEOK AI Labs: https://meok.ai
+- Council of AI: https://councilof.ai
