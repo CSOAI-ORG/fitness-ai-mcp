@@ -1,0 +1,23 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "fitness-ai-mcp",
+    "description": "Fitness Ai MCP Server by MEOK AI Labs",
+    "version": "1.0.6",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "fitness-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "generate_workout",
+      "track_calories",
+      "calculate_body_composition",
+      "build_training_plan",
+      "check_exercise_form"
+    ]
+  }
+}
