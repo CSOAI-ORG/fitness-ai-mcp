@@ -1,0 +1,28 @@
+{
+  "name": "fitness-ai-mcp",
+  "title": "Fitness Ai Mcp",
+  "description": "Fitness Ai tools for AI agents. Capabilities: generate workout, track calories, calculate body composition. Built by MEOK AI Labs.",
+  "version": "1.0.6",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "generate_workout"
+    },
+    {
+      "name": "track_calories"
+    },
+    {
+      "name": "calculate_body_composition"
+    },
+    {
+      "name": "build_training_plan"
+    },
+    {
+      "name": "check_exercise_form"
+    }
+  ]
+}

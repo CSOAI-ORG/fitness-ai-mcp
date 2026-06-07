@@ -1,6 +1,4 @@
 """
-Buy Pro: https://www.csoai.org/checkout
-
 Fitness AI MCP Server
 Health and fitness tools powered by MEOK AI Labs.
 """
